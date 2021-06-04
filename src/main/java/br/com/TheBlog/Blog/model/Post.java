@@ -7,6 +7,8 @@ import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
@@ -19,15 +21,21 @@ public class Post {
     private Long id;
 
     @NotBlank
+    @NotNull
+    @NotEmpty
     private String titulo;
 
     @NotBlank
+    @NotNull
+    @NotEmpty
     private String autor;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate data;
 
     @NotBlank
+    @NotNull
+    @NotEmpty
     @Lob
     private String texto;
 }
